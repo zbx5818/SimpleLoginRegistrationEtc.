@@ -3,7 +3,10 @@ package com.mercury.project.auth.controller;
 import com.mercury.project.auth.model.User;
 import com.mercury.project.auth.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class TestController {
@@ -13,8 +16,6 @@ public class TestController {
     public TestController(UserService userService) {
         this.userService = userService;
     }
-
-
 
 
     @PostMapping("/regtest")

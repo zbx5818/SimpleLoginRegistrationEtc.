@@ -5,9 +5,7 @@ import com.mercury.project.auth.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 @Controller
 public class UserController {
@@ -24,9 +22,9 @@ public class UserController {
         return userService.findAll().toString();
     }
 
-    @RequestMapping("/")
-    public User index() {
-        return userService.findByFirstName("tester");
+    @GetMapping("/")
+    public String index() {
+        return "Welcome";
     }
 
     @GetMapping("/reg")
@@ -36,7 +34,7 @@ public class UserController {
 
     @GetMapping("/login")
     public String loginPage(User user) {
-        return "Login.html";
+        return "Login";
     }
     /*
     @RequestMapping(value = "/ds", method = RequestMethod.GET)

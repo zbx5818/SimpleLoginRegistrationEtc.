@@ -1,6 +1,7 @@
 package com.mercury.project.auth.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "userInfo", uniqueConstraints = @UniqueConstraint(columnNames = "username"))
@@ -12,30 +13,26 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long Id;
 
+    @NotNull
     private String firstName;
+    @NotNull
     private String lastName;
+    @NotNull
     private String address;
+    @NotNull
     private String city;
+    @NotNull
     private String state;
+    @NotNull
     private String zipcode;
+    @NotNull
     private String username;
+    @NotNull
     private String password;
 
     public User() {
     }
 
-    /**
-     * add more info here: email and phone,
-     *
-     * @param firstName
-     * @param lastName
-     * @param address
-     * @param city
-     * @param state
-     * @param zipcode
-     * @param username
-     * @param password
-     */
     public User(String firstName, String lastName, String address, String city, String state, String zipcode, String username, String password) {
         this.firstName = firstName;
         this.lastName = lastName;

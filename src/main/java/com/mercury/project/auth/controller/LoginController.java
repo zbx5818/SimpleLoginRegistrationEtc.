@@ -4,12 +4,13 @@ import com.mercury.project.auth.model.User;
 import com.mercury.project.auth.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+//@RestController
+/**
+ * The class is no longer used. It's implemented in Spring Security
+ */
 public class LoginController {
     private final UserService userService;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -20,7 +21,7 @@ public class LoginController {
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
-    @PostMapping("/implement this later")
+    @PostMapping("/login")
     public String login(User user) {
         User userExist = userService.findByUsername(user.getUsername());
         if (userExist != null) {

@@ -41,4 +41,5 @@ public class UserServiceImpl implements UserService {
     public User findByFirstName(String firstname) {
         return userRepository.findByFirstName(firstname);
     }
+
 }

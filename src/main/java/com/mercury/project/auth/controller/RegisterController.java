@@ -1,7 +1,7 @@
 package com.mercury.project.auth.controller;
 
-import com.mercury.project.auth.service.UserService;
 import com.mercury.project.auth.model.User;
+import com.mercury.project.auth.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,7 +16,7 @@ public class RegisterController {
         this.userService = userService;
     }
 
-    @PostMapping("/register")
+    @PostMapping("/registration")
     public String registration(User user, BindingResult bindingResult) {
         //do validation here
         //UserValidator.validate(user, bindingResult);

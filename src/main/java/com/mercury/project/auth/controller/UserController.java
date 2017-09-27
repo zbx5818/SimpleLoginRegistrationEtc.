@@ -3,28 +3,25 @@ package com.mercury.project.auth.controller;
 import com.mercury.project.auth.model.User;
 import com.mercury.project.auth.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-public class TestController {
+@Controller
+public class UserController {
     private final UserService userService;
 
     @Autowired
-    public TestController(UserService userService) {
+    public UserController(UserService userService) {
         this.userService = userService;
     }
 
 
-    @PostMapping("/regtest")
+    @GetMapping("/registration")
     public String regtest(User user) {
-
-        userService.save(user);
-        System.out.println(user);
-        return "succeed";
-
+        return userService.findAll().toString();
     }
 
     @RequestMapping("/")
@@ -32,12 +29,15 @@ public class TestController {
         return userService.findByFirstName("tester");
     }
 
-    @GetMapping("/regtest")
+    @GetMapping("/reg")
     public User regtest2() {
         return new User();
     }
 
-
+    @GetMapping("/login")
+    public String loginPage(User user) {
+        return "Login.html";
+    }
     /*
     @RequestMapping(value = "/ds", method = RequestMethod.GET)
     public Iterable<User> getAllPersons() {

@@ -16,7 +16,7 @@ public class RegisterController {
         this.userService = userService;
     }
 
-    @PostMapping("/register")
+    @PostMapping("/registration")
     public String registration(User user, BindingResult bindingResult) {
         //do validation here
         //UserValidator.validate(user, bindingResult);

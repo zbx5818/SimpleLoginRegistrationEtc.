@@ -3,24 +3,28 @@ package com.mercury.project.auth.controller;
 import com.mercury.project.auth.model.User;
 import com.mercury.project.auth.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class LoginController {
     private final UserService userService;
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
-    public LoginController(UserService userService) {
+    public LoginController(UserService userService, BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.userService = userService;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
-    @PostMapping("/login")
+    @PostMapping("/implement this later")
     public String login(User user) {
         User userExist = userService.findByUsername(user.getUsername());
         if (userExist != null) {
-            if (userExist.getPassword().equals(user.getPassword())) {//encryption need
-                //session here
+            if (userExist.getPassword().equals(bCryptPasswordEncoder.encode(user.getPassword()))) {//encryption need
                 return "login permitted";
             } else {
                 return "wrong username or password";
@@ -29,4 +33,6 @@ public class LoginController {
             return "wrong username or password";
         }
     }
+
+
 }

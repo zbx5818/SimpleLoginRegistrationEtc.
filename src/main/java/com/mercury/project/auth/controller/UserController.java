@@ -22,8 +22,13 @@ public class UserController {
         return userService.findAll().toString();
     }
 
-    @GetMapping("/")
+    @GetMapping("/*")
     public String index() {
+        return "redirect:/Welcome";
+    }
+
+    @GetMapping("/Welcome")
+    public String welcome() {
         return "Welcome";
     }
 

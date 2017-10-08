@@ -3,11 +3,11 @@ package com.mercury.project.auth.controller;
 import com.mercury.project.auth.model.User;
 import com.mercury.project.auth.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@Controller
 public class RegisterController {
     private final UserService userService;
 
@@ -22,14 +22,14 @@ public class RegisterController {
         //UserValidator.validate(user, bindingResult);
 
         if (bindingResult.hasErrors()) {
-            return "/registration";
+            return "/changethis:registration";
         }
 
         userService.save(user);
 
         //do auto login for spring security
 
-        return "redirect:/homepage";
+        return "registration";
 
     }
 }

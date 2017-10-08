@@ -3,13 +3,12 @@ package com.mercury.project.auth.validator;
 
 import com.mercury.project.auth.model.User;
 import org.springframework.lang.Nullable;
-import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
 //@Component
-public class UserValidator implements Validator{
+public class UserValidator implements Validator {
 
     @Override
     public boolean supports(Class<?> aClass) {

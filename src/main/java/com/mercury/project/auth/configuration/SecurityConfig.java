@@ -31,7 +31,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable();//disable csrf for now
         http
                 .authorizeRequests()
-                .antMatchers("/registration").permitAll()
+                .antMatchers("/registration")
+                .permitAll()
+                .antMatchers("/admin/**").hasAuthority("Admin")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -42,7 +44,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout()
                 .permitAll();
-
     }
 
     @Override
